@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>LIF - SNICK</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: "Trebuchet MS", Arial, sans-serif;
+        background: #f1f8f1;
+        color: #29452f;
+    }
+
+    header {
+        background: #dcefdc;
+        padding: 25px;
+        text-align: center;
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 42px;
+        color: #3b7d45;
+    }
+
+    nav {
+        margin-top: 15px;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: #35683d;
+        margin: 0 12px;
+        font-weight: bold;
+    }
+
+    .hero {
+        text-align: center;
+        padding: 70px 20px;
+        background: linear-gradient(#e8f6e8, #f8fcf8);
+    }
+
+    .hero h2 {
+        font-size: 42px;
+        color: #34783e;
+        margin-bottom: 10px;
+    }
+
+    .hero p {
+        font-size: 19px;
+        max-width: 650px;
+        margin: auto;
+        line-height: 1.6;
+    }
+
+    .producto {
+        background: white;
+        width: 80%;
+        max-width: 850px;
+        margin: 35px auto;
+        padding: 35px;
+        border-radius: 25px;
+        box-shadow: 0 8px 25px rgba(58, 105, 64, 0.15);
+        text-align: center;
+    }
+
+    .producto h2 {
+        color: #34783e;
+        font-size: 30px;
+    }
+
+    .producto p {
+        font-size: 17px;
+        line-height: 1.7;
+    }
+
+    .imagen-producto {
+        width: 250px;
+        height: 180px;
+        margin: 25px auto;
+        background: #dcefdc;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #4d8054;
+        font-weight: bold;
+    }
+
+    .beneficios {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-top: 25px;
+    }
+
+    .tarjeta {
+        background: #edf7ed;
+        width: 220px;
+        padding: 20px;
+        border-radius: 20px;
+    }
+
+    .tarjeta h3 {
+        color: #3b7d45;
+    }
+
+    button {
+        background: #4c9858;
+        color: white;
+        border: none;
+        padding: 14px 28px;
+        border-radius: 30px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #397b44;
+    }
+
+    footer {
+        background: #dcefdc;
+        text-align: center;
+        padding: 25px;
+        margin-top: 50px;
+    }
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<header>
+    <h1>LIF</h1>
+
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#producto">SNICK</a>
+        <a href="#beneficios">Beneficios</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+</header>
+
+
+<section class="hero" id="inicio">
+
+    <h2>SNICK</h2>
+
+    <p>
+        Un snack pensado para disfrutar algo delicioso
+        mientras eliges una propuesta diferente.
+    </p>
+
+    <br>
+
+    <button>Quiero conocerlo</button>
+
+</section>
+
+
+<section class="producto" id="producto">
+
+    <h2>¿Qué es SNICK?</h2>
+
+    <div class="imagen-producto">
+        🍫 Imagen de SNICK
+    </div>
+
+    <p>
+        SNICK es nuestro producto estrella.
+        Aquí encontrarás información sobre sus características,
+        beneficios y presentación.
+    </p>
+
+</section>
+
+
+<section class="producto" id="beneficios">
+
+    <h2>¿Por qué elegir SNICK?</h2>
+
+    <div class="beneficios">
+
+        <div class="tarjeta">
+            <h3>✨ Innovador</h3>
+            <p>
+                Una propuesta diferente pensada para nuestros clientes.
+            </p>
+        </div>
+
+        <div class="tarjeta">
+            <h3>🌿 Natural</h3>
+            <p>
+                Una propuesta que busca combinar sabor y una experiencia agradable.
+            </p>
+        </div>
+
+        <div class="tarjeta">
+            <h3>💚 Diferente</h3>
+            <p>
+                Descubre una nueva forma de disfrutar un snack.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="producto" id="contacto">
+
+    <h2>Contáctanos</h2>
+
+    <p>
+        Forma parte de la experiencia LIF.
+    </p>
+
+    <button>Contáctanos</button>
+
+</section>
+
+
+<footer>
+
+    <p>© 2026 LIF - SNICK</p>
+
+    <p>Un snack diferente para disfrutar.</p>
+
+</footer>
+```
+
+</body>
+</html>
