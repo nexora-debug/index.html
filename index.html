@@ -1,286 +1,381 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>LIF - SNICK</title>
-
-    <style>
-        body {
-            margin: 0;
-            font-family: "Trebuchet MS", Arial, sans-serif;
-            background: #f1f8f1;
-            color: #29452f;
-        }
-
-        header {
-            background: #dcefdc;
-            padding: 25px;
-            text-align: center;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 42px;
-            color: #3b7d45;
-        }
-
-        nav {
-            margin-top: 15px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #35683d;
-            margin: 0 12px;
-            font-weight: bold;
-        }
-
-        .hero {
-            text-align: center;
-            padding: 70px 20px;
-            background: linear-gradient(#e8f6e8, #f8fcf8);
-        }
-
-        .hero h2 {
-            font-size: 42px;
-            color: #34783e;
-            margin-bottom: 10px;
-        }
-
-        .hero p {
-            font-size: 19px;
-            max-width: 650px;
-            margin: auto;
-            line-height: 1.6;
-        }
-
-        .producto {
-            background: white;
-            width: 80%;
-            max-width: 850px;
-            margin: 35px auto;
-            padding: 35px;
-            border-radius: 25px;
-            box-shadow: 0 8px 25px rgba(58, 105, 64, 0.15);
-            text-align: center;
-        }
-
-        .producto h2 {
-            color: #34783e;
-            font-size: 30px;
-        }
-
-        .producto p {
-            font-size: 17px;
-            line-height: 1.7;
-        }
-
-        .imagen-producto {
-            width: 250px;
-            height: 180px;
-            margin: 25px auto;
-            background: #dcefdc;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #4d8054;
-            font-weight: bold;
-        }
-
-        .beneficios {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 25px;
-        }
-
-        .tarjeta {
-            background: #edf7ed;
-            width: 220px;
-            padding: 20px;
-            border-radius: 20px;
-        }
-
-        .tarjeta h3 {
-            color: #3b7d45;
-        }
-
-        button {
-            background: #4c9858;
-            color: white;
-            border: none;
-            padding: 14px 28px;
-            border-radius: 30px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background: #397b44;
-        }
-
-        .contactos {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px;
-            margin-top: 25px;
-        }
-
-        .contacto {
-            background: #4c9858;
-            color: white;
-            text-decoration: none;
-            padding: 13px 20px;
-            border-radius: 30px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .contacto:hover {
-            background: #397b44;
-            transform: translateY(-2px);
-        }
-
-        footer {
-            background: #dcefdc;
-            text-align: center;
-            padding: 25px;
-            margin-top: 50px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LIF - SNICK</title>
+<style>
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    background: #f1f8f1;
+    color: #29452f;
+}
+header, footer { background: #dcefdc; text-align: center; padding: 25px; }
+header h1 { color: #3b7d45; margin: 0; font-size: 42px; }
+nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-top: 15px; }
+nav a { color: #35683d; font-weight: bold; text-decoration: none; }
+.hero { text-align: center; padding: 60px 20px; background: linear-gradient(#e8f6e8,#f8fcf8); }
+.hero h2 { color: #34783e; font-size: 42px; }
+.hero p { max-width: 650px; margin: auto; line-height: 1.7; font-size: 18px; }
+.producto {
+    background: white; width: 90%; max-width: 900px;
+    margin: 30px auto; padding: 30px; border-radius: 22px;
+    box-shadow: 0 8px 25px rgba(58,105,64,.12); text-align: center;
+}
+h2 { color: #34783e; }
+p { line-height: 1.7; }
+.beneficios { display: flex; justify-content: center; flex-wrap: wrap; gap: 18px; }
+.tarjeta { background: #edf7ed; padding: 20px; border-radius: 18px; width: 220px; }
+button {
+    background: #4c9858; color: white; border: 0; padding: 12px 18px;
+    border-radius: 25px; font: inherit; font-weight: bold; cursor: pointer;
+}
+button:hover { background: #397b44; }
+button:disabled { opacity: .6; cursor: wait; }
+input { font: inherit; padding: 10px; border: 1px solid #b8d7ba; border-radius: 9px; }
+.cantidad { width: 75px; margin: 8px; }
+.precio, .total { color: #34783e; font-size: 22px; font-weight: bold; }
+.item-carrito { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; border-bottom: 1px solid #dcefdc; padding: 15px 0; text-align: left; }
+.item-carrito p { margin: 4px 0; }
+.eliminar { background: #a84444; }
+.nombre-cliente { display: block; width: 100%; max-width: 400px; margin: 12px auto; }
+.organigrama { width: 100%; max-width: 900px; height: auto; }
+#mensaje-pedido { overflow-wrap: anywhere; font-weight: bold; }
+footer { margin-top: 40px; }
+@media(max-width:600px) {
+    header h1, .hero h2 { font-size: 34px; }
+    .producto { padding: 22px 15px; }
+    .tarjeta { width: 100%; }
+}
+</style>
 </head>
-
 <body>
 
 <header>
     <h1>LIF</h1>
-
     <nav>
         <a href="#inicio">Inicio</a>
         <a href="#producto">SNICK</a>
         <a href="#beneficios">Beneficios</a>
-        <a href="#contacto">Contacto</a>
+        <a href="#comprar">Comprar</a>
+        <a href="#carrito">🛒 Carrito</a>
+        <a href="#qr">Código QR</a>
     </nav>
 </header>
 
-
 <section class="hero" id="inicio">
-
     <h2>SNICK</h2>
-
-    <p>
-        Un snack pensado para disfrutar algo delicioso
-        mientras eliges una propuesta diferente.
-    </p>
-
+    <p>Un snack pensado para disfrutar algo delicioso mientras eliges una propuesta diferente.</p>
     <br>
-
-    <button>Quiero conocerlo</button>
-
+    <button onclick="document.getElementById('producto').scrollIntoView({behavior:'smooth'})">Quiero conocerlo</button>
 </section>
-
 
 <section class="producto" id="producto">
-
-    <h2>¿Qué es SNICK?</h2>
-
-    <div class="imagen-producto">
-        🍫 Imagen de SNICK
-    </div>
-
-    <p>
-        SNICK es nuestro producto estrella.
-        Aquí encontrarás información sobre sus características,
-        beneficios y presentación.
-    </p>
-
+    <h2>🍫 ¿Qué es SNICK?</h2>
+    <p>SNICK es una alternativa a los Snickers que busca ofrecer una propuesta diferente para nuestros clientes.</p>
+    <p>Utilizamos agua de dátiles y syrup de dátiles como parte de nuestra propuesta de producto.</p>
+    <p>Tenemos tres sabores: 🍫 chocolate clásico, 🤍 chocolate blanco y 🖤 chocolate negro.</p>
 </section>
-
 
 <section class="producto" id="beneficios">
-
     <h2>¿Por qué elegir SNICK?</h2>
-
     <div class="beneficios">
-
-        <div class="tarjeta">
-            <h3>✨ Innovador</h3>
-            <p>
-                Una propuesta diferente pensada para nuestros clientes.
-            </p>
-        </div>
-
-        <div class="tarjeta">
-            <h3>🌿 Natural</h3>
-            <p>
-                Una propuesta que busca combinar sabor y una experiencia agradable.
-            </p>
-        </div>
-
-        <div class="tarjeta">
-            <h3>💚 Diferente</h3>
-            <p>
-                Descubre una nueva forma de disfrutar un snack.
-            </p>
-        </div>
-
+        <div class="tarjeta"><h3>✨ Innovador</h3><p>Una propuesta diferente pensada para nuestros clientes.</p></div>
+        <div class="tarjeta"><h3>🌿 Natural</h3><p>Una idea que busca combinar sabor y una experiencia agradable.</p></div>
+        <div class="tarjeta"><h3>💚 Diferente</h3><p>Descubre una nueva forma de disfrutar un snack.</p></div>
     </div>
-
 </section>
 
-
-<section class="producto" id="contacto">
-
-    <h2>Contáctanos</h2>
-
-    <p>
-        ¿Tienes alguna pregunta? Escríbenos y estaremos encantados de ayudarte.
-    </p>
-
-    <div class="contactos">
-
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mirko.segovia@sir.pe" class="contacto">
-            📧 Mirko
-        </a>
-
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=joaquin.chambergo@sir.pe" class="contacto">
-            📧 Joaquín
-        </a>
-
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=braulio.nunez@sir.pe" class="contacto">
-            📧 Braulio
-        </a>
-
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=nicolas.solorzano@sir.pe" class="contacto">
-            📧 Nicolás
-        </a>
-
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=fabrizio.carvallo@sir.pe" class="contacto">
-            📧 Fabrizio
-        </a>
-
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mateo.mazuelos@sir.pe" class="contacto">
-            📧 Mateo
-        </a>
-
+<section class="producto" id="comprar">
+    <h2>🛍️ Elige tu SNICK</h2>
+    <p>Selecciona tu sabor y la cantidad que deseas.</p>
+    <p class="precio">Precio por unidad: S/ 3.50</p>
+    <div class="beneficios">
+        <div class="tarjeta">
+            <h3>🍫 Chocolate clásico</h3>
+            <label for="cantidad-clasico">Cantidad:</label><br>
+            <input class="cantidad" type="number" id="cantidad-clasico" min="1" max="99" value="1"><br>
+            <button onclick="agregarAlCarrito('Chocolate clásico','cantidad-clasico')">Agregar al carrito</button>
+        </div>
+        <div class="tarjeta">
+            <h3>🤍 Chocolate blanco</h3>
+            <label for="cantidad-blanco">Cantidad:</label><br>
+            <input class="cantidad" type="number" id="cantidad-blanco" min="1" max="99" value="1"><br>
+            <button onclick="agregarAlCarrito('Chocolate blanco','cantidad-blanco')">Agregar al carrito</button>
+        </div>
+        <div class="tarjeta">
+            <h3>🖤 Chocolate negro</h3>
+            <label for="cantidad-negro">Cantidad:</label><br>
+            <input class="cantidad" type="number" id="cantidad-negro" min="1" max="99" value="1"><br>
+            <button onclick="agregarAlCarrito('Chocolate negro','cantidad-negro')">Agregar al carrito</button>
+        </div>
     </div>
-
 </section>
 
+<section class="producto" id="carrito">
+    <h2>🛒 Tu carrito de compras</h2>
+    <div id="lista-carrito"><p>Tu carrito está vacío. ¡Agrega tu primer SNICK!</p></div>
+    <p class="total" id="total-carrito">Total: S/ 0.00</p>
+    <label for="nombre-cliente"><strong>Tu nombre:</strong></label>
+    <input class="nombre-cliente" type="text" id="nombre-cliente" maxlength="100" placeholder="Escribe tu nombre">
+    <button id="boton-enviar-pedido" onclick="enviarPedido()">Enviar pedido</button>
+    <p id="mensaje-pedido" role="status" aria-live="polite"></p>
+    <button onclick="vaciarCarrito()" style="background:#dcefdc;color:#29452f;">Vaciar carrito</button>
+</section>
+
+<section class="producto" id="vision-mision">
+    <h2>Visión y misión</h2>
+    <div class="beneficios">
+        <div class="tarjeta"><h3>🎯 Misión</h3><p>Generar un cambio en la manera en que las personas ven nuestro producto, ofreciendo una propuesta diferente que responda a sus preferencias.</p></div>
+        <div class="tarjeta"><h3>🔭 Visión</h3><p>Aumentar nuestra producción, crecer y contribuir al desarrollo de nuestra empresa y a la satisfacción de nuestros clientes.</p></div>
+    </div>
+</section>
+
+<section class="producto" id="organigrama">
+    <h2>🏢 Nuestro organigrama</h2>
+    <img class="organigrama" src="organigrama_lif_final.png" alt="Organigrama de LIF">
+</section>
+
+<section class="producto" id="proposito">
+    <h2>🎯 Nuestro propósito</h2>
+    <p>Satisfacer a nuestros clientes con una versión diferente de un dulce y brindar una experiencia agradable.</p>
+</section>
+
+<section class="producto" id="ods">
+    <h2>Objetivos de Desarrollo Sostenible (ODS)</h2>
+    <div class="beneficios">
+        <div class="tarjeta"><h3>🌾 ODS 2</h3><p>Hambre cero: reconocer la importancia de la alimentación.</p></div>
+        <div class="tarjeta"><h3>💚 ODS 3</h3><p>Salud y bienestar: valorar el bienestar y la información responsable.</p></div>
+        <div class="tarjeta"><h3>♻️ ODS 12</h3><p>Producción y consumo responsables: usar materiales responsablemente y reducir residuos.</p></div>
+    </div>
+</section>
+
+<section class="producto" id="qr">
+    <h2>Nuestro código QR</h2>
+    <p>Escanea nuestro código QR para acceder a la información de SNICK.</p>
+    <img src="QR.svg" alt="Código QR de LIF" style="width:220px;max-width:100%;height:auto;">
+</section>
 
 <footer>
-
     <p>© 2026 LIF - SNICK</p>
-
     <p>Un snack diferente para disfrutar.</p>
-
 </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+    const PRECIO_SNICK = 3.50;
+    const carrito = {};
+
+    const SUPABASE_URL = "https://azyrrhqbuvhtgakylxdc.supabase.co";
+    const SUPABASE_KEY = "sb_publishable_2bvSaq07DeLP71cZqBbUYQ_mSsKFNyg";
+
+    function agregarAlCarrito(sabor, idCantidad) {
+        const campo = document.getElementById(idCantidad);
+        const cantidad = Number(campo.value);
+
+        if (!Number.isInteger(cantidad) || cantidad < 1 || cantidad > 99) {
+            alert("Ingresa una cantidad entre 1 y 99.");
+            campo.focus();
+            return;
+        }
+
+        if ((carrito[sabor] || 0) + cantidad > 99) {
+            alert("Puedes agregar hasta 99 unidades por sabor.");
+            return;
+        }
+
+        carrito[sabor] = (carrito[sabor] || 0) + cantidad;
+        document.getElementById("mensaje-pedido").textContent = "";
+        actualizarCarrito();
+
+        document.getElementById("carrito").scrollIntoView({
+            behavior: "smooth"
+        });
+    }
+
+    function cambiarCantidad(sabor, nuevaCantidad) {
+        const cantidad = Number(nuevaCantidad);
+
+        if (!Number.isInteger(cantidad) || cantidad < 1 || cantidad > 99) {
+            actualizarCarrito();
+            return;
+        }
+
+        carrito[sabor] = cantidad;
+        actualizarCarrito();
+    }
+
+    function eliminarProducto(sabor) {
+        delete carrito[sabor];
+        actualizarCarrito();
+    }
+
+    function vaciarCarrito() {
+        for (const sabor in carrito) {
+            delete carrito[sabor];
+        }
+
+        actualizarCarrito();
+        document.getElementById("mensaje-pedido").textContent = "";
+    }
+
+    function actualizarCarrito() {
+        const lista = document.getElementById("lista-carrito");
+        const totalElemento = document.getElementById("total-carrito");
+
+        lista.innerHTML = "";
+        const sabores = Object.keys(carrito);
+
+        if (sabores.length === 0) {
+            lista.innerHTML =
+                "<p>Tu carrito está vacío. ¡Agrega tu primer SNICK!</p>";
+        }
+
+        let total = 0;
+
+        sabores.forEach(function(sabor) {
+            const cantidad = carrito[sabor];
+            const subtotal = cantidad * PRECIO_SNICK;
+            total += subtotal;
+
+            const item = document.createElement("div");
+            item.className = "item-carrito";
+
+            const informacion = document.createElement("div");
+            const nombre = document.createElement("strong");
+            nombre.textContent = sabor;
+
+            const detalle = document.createElement("p");
+            detalle.textContent = "Precio: S/ " + PRECIO_SNICK.toFixed(2);
+
+            const subtotalTexto = document.createElement("p");
+            subtotalTexto.textContent =
+                "Subtotal: S/ " + subtotal.toFixed(2);
+
+            informacion.appendChild(nombre);
+            informacion.appendChild(detalle);
+            informacion.appendChild(subtotalTexto);
+
+            const controles = document.createElement("div");
+            const etiqueta = document.createElement("label");
+            etiqueta.textContent = "Cantidad: ";
+
+            const campo = document.createElement("input");
+            campo.type = "number";
+            campo.min = "1";
+            campo.max = "99";
+            campo.value = cantidad;
+            campo.setAttribute("aria-label", "Cantidad de " + sabor);
+
+            campo.addEventListener("change", function() {
+                cambiarCantidad(sabor, campo.value);
+            });
+
+            const eliminar = document.createElement("button");
+            eliminar.className = "boton-eliminar";
+            eliminar.textContent = "Eliminar";
+            eliminar.type = "button";
+
+            eliminar.addEventListener("click", function() {
+                eliminarProducto(sabor);
+            });
+
+            controles.appendChild(etiqueta);
+            controles.appendChild(campo);
+            controles.appendChild(document.createElement("br"));
+            controles.appendChild(eliminar);
+
+            item.appendChild(informacion);
+            item.appendChild(controles);
+            lista.appendChild(item);
+        });
+
+        totalElemento.textContent = "Total: S/ " + total.toFixed(2);
+    }
+
+    async function enviarPedido() {
+        const nombreCampo = document.getElementById("nombre-cliente");
+        const mensaje = document.getElementById("mensaje-pedido");
+        const nombre = nombreCampo.value.trim();
+
+        if (!nombre) {
+            mensaje.textContent = "Escribe tu nombre antes de continuar.";
+            nombreCampo.focus();
+            return;
+        }
+
+        if (nombre.length > 100) {
+            mensaje.textContent = "El nombre es demasiado largo.";
+            return;
+        }
+
+        const sabores = Object.keys(carrito);
+
+        if (sabores.length === 0) {
+            mensaje.textContent = "Agrega al menos un SNICK al carrito.";
+            return;
+        }
+
+        mensaje.textContent = "Registrando tu pedido...";
+
+        const items = sabores.map(function(sabor) {
+            return {
+                sabor: sabor,
+                cantidad: carrito[sabor],
+                precio_unitario: PRECIO_SNICK,
+                subtotal: carrito[sabor] * PRECIO_SNICK
+            };
+        });
+
+        const total = Number(
+            items.reduce(function(suma, item) {
+                return suma + item.subtotal;
+            }, 0).toFixed(2)
+        );
+
+        try {
+            const respuesta = await fetch(
+                SUPABASE_URL + "/rest/v1/orders",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "apikey": SUPABASE_KEY,
+                        "Authorization": "Bearer " + SUPABASE_KEY,
+                        "Prefer": "return=minimal"
+                    },
+                    body: JSON.stringify({
+                        customer_name: nombre,
+                        items: items,
+                        total: total,
+                        status: "pendiente"
+                    })
+                }
+            );
+
+            if (!respuesta.ok) {
+                throw new Error(await respuesta.text());
+            }
+
+            vaciarCarrito();
+            nombreCampo.value = "";
+            mensaje.textContent = "¡Pedido registrado correctamente!";
+
+        } catch (error) {
+            console.error("Error al guardar el pedido:", error);
+            mensaje.textContent =
+                "No se pudo guardar el pedido. Revisa la conexión o la configuración de Supabase.";
+        }
+    }
+
+    actualizarCarrito();
+</script>
+</body>
+</html>
 
 </body>
 </html>
